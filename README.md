@@ -6,13 +6,37 @@ class: center, middle, inverse
 
 # Why
 * no distraction
-* mouseless (keyboard only)
-* no resource hungry
-* often implemented (even in Windows)
+* .grey[mouseless (keyboard only)]
+* .grey[no resource hungry]
+* .grey[often implemented (even in Windows)]
 
 ???
 
 General discussion about the history, simplicity, low-bandwith, low-resources features of terminal aka command line.
+
+---
+
+# Why
+* .grey[no distraction]
+* mouseless (keyboard only)
+* .grey[no resource hungry]
+* .grey[often implemented (even in Windows)]
+
+---
+
+# Why
+* .grey[no distraction]
+* .grey[mouseless (keyboard only)]
+* no resource hungry
+* .grey[often implemented (even in Windows)]
+
+---
+
+# Why
+* .grey[no distraction]
+* .grey[mouseless (keyboard only)]
+* .grey[no resource hungry]
+* often implemented (even in Windows)
 
 ---
 
