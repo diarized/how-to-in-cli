@@ -1,5 +1,10 @@
+class: center, middle, inverse
+
 # The terminal
 
+---
+
+# Why
 * no distraction
 * mouseless (keyboard only)
 * no resource hungry
