@@ -222,20 +222,26 @@ How to use Mutt to read remote inbox on Gmail server
 
 ---
 
-# Password storage
+class: center, middle, inverse
 
-* [Password-store](http://git.zx2c4.com/password-store/about/)
+# Password management
 
 ---
 
-# Password storage
+# Password management
+
+* [Password-store](http://git.zx2c4.com/password-store/about/) - keeping passwords out of config files
+
+---
+
+# Password management
 
 * .grey[Password-store]
 * Combined with Pretty GNU Privacy (PGP key infrastructure + key agent)
 
 ---
 
-# Password storage
+# Password management
 
 * .grey[Password-store]
 * .grey[Combined with Pretty GNU Privacy (PGP key infrastructure + key agent)]
@@ -299,6 +305,13 @@ class: center, middle, inverse
  24 .mdir-funfile/
 ```
 
+???
+
+:0c clones an email and processes it without waiting for exit code
+:0cD as above but rule is case sensitive
+:0w flag says to wait for the program in the action line to finish
+:0 just tries to match. Incase of success it interrupts.
+
 ---
 
 # Procmail logs
@@ -323,11 +336,46 @@ procmail: Assigning "LASTFOLDER=.mdir-python-dev/new/1432854975.23198_0.monitor"
 # Filtering/sorting
 
 * .grey[Procmail filters and sorts into folders with local delivery]
-* IMAPfilter filter and sorts e-mails on remote system using IMAProtocol
+* IMAPfilter filters and sorts e-mails on remote system using IMAProtocol
 
 ---
 
-# Download
+#IMAPfilter
+
+* Config in Lua
+
+---
+
+#IMAPfilter
+
+* .grey[Config in Lua]
+* Works for remote/remote or remote/local mailboxes
+
+---
+
+
+# IMAPFilter - account definition
+
+```
+account1 = IMAP {
+  server = "imap.gmail.com",
+  username = "joe@gmail.com",
+  password = "P@ssw0rd",
+  ssl = "tls1"
+}
+```
+---
+
+# IMAPFilter - SELECT
+
+```
+messages = account1["INBOX"]:contain_to("duplicity-talk@nongnu.org")
+messages:move_messages(account1["Mailinglists/Duplicity-Talk"])
+```
+  
+---
+
+# E-mail downloading
 
 * OfflineIMAP    </textarea>
     <script src="./js/remark.js">
