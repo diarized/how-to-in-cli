@@ -388,13 +388,6 @@ Easy to debug and improve
 
 ---
 
-# Password management
-
-* .grey[Password-store]
-* .grey[Combined with Pretty GNU Privacy (PGP key infrastructure + key agent)]
-
----
-
 # Pretty GNU Privacy
 
 * Key agent
