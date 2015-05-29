@@ -4,6 +4,10 @@ class: center, middle, inverse
 
 .footnote[[Online version](https://github.com/diarized/how-to-in-cli)]
 
+???
+
+Its a presentation that can be displayed as slides after adding a few lines of HTML as described on http://remarkjs.com/
+
 ---
 
 # Why
@@ -487,4 +491,34 @@ class: center, middle, inverse
 
 ---
 
+# TaskWorrior
+
+![Zadania](./static/zadania_lista.png)
+
+---
+
+# TaskWorrior
+
+* Easy at the beginnig
+
+---
+
+# TaskWorrior
+
+* .grey[Easy at the beginnig]
+* Flexible
+
+---
+
+# TaskWorrior
+
+* .grey[Easy at the beginnig]
+* .grey[Flexible]
+* Powerful
+
+---
+
+class: center, middle, inverse
+
+# Q/A session
 
