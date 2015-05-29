@@ -1,7 +1,6 @@
 js/remark.js
-
 complete.sh
-
 footer.html
-
 header.html
+twistd.log
+twistd.pid

@@ -121,9 +121,11 @@ class: center, middle, inverse
 
 # The terminal
 
+.footnote[[Online version](https://github.com/diarized/how-to-in-cli)]
 ---
 
 # Why
+
 * no distraction
 
 ???
@@ -133,12 +135,14 @@ General discussion about the history, simplicity, low-bandwith, low-resources fe
 ---
 
 # Why
+
 * .grey[no distraction]
 * mouseless (keyboard only)
 
 ---
 
 # Why
+
 * .grey[no distraction]
 * .grey[mouseless (keyboard only)]
 * no resource hungry
@@ -146,6 +150,7 @@ General discussion about the history, simplicity, low-bandwith, low-resources fe
 ---
 
 # Why
+
 * .grey[no distraction]
 * .grey[mouseless (keyboard only)]
 * .grey[no resource hungry]
@@ -191,7 +196,9 @@ class: center, middle, inverse
 
 ---
 
-# Reading on IMAP
+# Reading with IMAP
+
+How to configure Mutt to read directly from IMAP server
 
 ???
 
@@ -199,7 +206,7 @@ How to use Mutt to read remote inbox on Gmail server
 
 ---
 
-# Reading on IMAP
+# Reading with IMAP
 
 ```
   1 source $HOME/.muttrc_common
@@ -357,27 +364,90 @@ procmail: Assigning "LASTFOLDER=.mdir-python-dev/new/1432854975.23198_0.monitor"
 # IMAPFilter - account definition
 
 ```
-account1 = IMAP {
-  server = "imap.gmail.com",
-  username = "joe@gmail.com",
-  password = "P@ssw0rd",
-  ssl = "tls1"
-}
+19 myuser = 'artur'
+20 local cmd = '/home/arkamins/local/bin/pass myvpsmail'
+21 local fd = io.popen(cmd, 'r')
+22 pass_string = fd:read("*a")
+23 fd:close()
+25 mypass = pass_string:sub(0, -2)
+27 
+28 MYVPS = IMAP {
+29     server = 'imap.myvps.com',
+30     username = myuser,
+31     password = mypass,
+32     ssl = 'tls'
+33 }
 ```
+---
+
+# Password in IMAPfilter
+
+This method requires running key agent with quite long TTL to make it convenient.
+
 ---
 
 # IMAPFilter - SELECT
 
 ```
-messages = account1["INBOX"]:contain_to("duplicity-talk@nongnu.org")
-messages:move_messages(account1["Mailinglists/Duplicity-Talk"])
+35 recent = MYVPS.INBOX:is_newer(1)
+36 messages = recent:contain_from('prof@(math.)?school.edu') +
+37            recent:contain_to('prof@(math.)?school.edu')
+38 messages:move_messages(MYVPS['INBOX/school'])
 ```
   
 ---
 
+class: center, middle, inverse
+
 # E-mail downloading
 
-* OfflineIMAP    </textarea>
+---
+
+# E-mail downloading
+
+* OfflineIMAP - Python tool to download from IMAP servers
+* ~/offlineimaprc - config file parsed as Python script
+
+---
+
+# OfflineIMAP config - custom functions
+
+```
+1 [general]
+2 accounts = MyRemoteIMAP
+3 ui = TTYUI
+4 fsync = True
+5 pythonfile=~/.offlineimap/password_store.py
+```
+
+---
+
+# OfflineIMAP config - indexing
+
+```
+ 15 [Account MyServerIMAP]
+ 16 localrepository  = MyServer_local
+ 17 remoterepository = MyServer_remote
+ 18 status_backend = sqlite
+ 19 postsynchook = /home/artur/local/bin/notmuch new
+ 20 #autorefresh = 2
+```
+
+---
+
+# OfflineIMAP config - passwords
+
+```
+ 22 [Repository MyServer_remote]
+ 23 type = IMAP
+ 24 remotehost = imap.myvps.com
+ 25 remoteport = 993
+ 26 remoteuser = artur
+ 27 remotepasseval = mailpass('myvpsmail')
+```
+
+
+  </textarea>
     <script src="./js/remark.js">
     </script>
     <script>
