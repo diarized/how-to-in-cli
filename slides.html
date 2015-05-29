@@ -406,7 +406,21 @@ class: center, middle, inverse
 # E-mail downloading
 
 * OfflineIMAP - Python tool to download from IMAP servers
+
+---
+
+# E-mail downloading
+
+* .grey[OfflineIMAP - Python tool to download from IMAP servers]
 * ~/offlineimaprc - config file parsed as Python script
+
+---
+
+# E-mail downloading
+
+* .grey[OfflineIMAP - Python tool to download from IMAP servers]
+* .grey[~/offlineimaprc - config file parsed as Python script]
+* run from crontab or in background with specified frequency
 
 ---
 
@@ -445,6 +459,107 @@ class: center, middle, inverse
  26 remoteuser = artur
  27 remotepasseval = mailpass('myvpsmail')
 ```
+
+---
+
+class: center, middle, inverse
+
+# Indexing e-mails
+
+---
+
+# Full text indexing
+
+* [notmuch](http://notmuchmail.org/)
+
+---
+
+# Full text indexing
+
+* .grey[notmuch]
+* Xapian
+
+---
+
+# Full text search
+
+* Mutt custom macro 'mutt-notmuch.py'
+* fork of honza@github script: [diarized/mutt-notmuch-py](https://github.com/diarized/mutt-notmuch-py)
+
+---
+
+# Full text search - muttrc
+
+```
+macro index / "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch.py \
+  -G /home/artur/Maildir<enter><change-folder-readonly>~/.mutt/cache_mutt_results<enter>" \
+  "search mail (using notmuch)"
+```
+
+---
+
+class: center, middle, inverse
+
+# Chatting in terminal
+
+---
+
+# Irssi as the client
+
+* Well known IRC protocol
+
+---
+
+# Irssi as the client
+
+* .grey[Well known IRC protocol]
+* Familiar IRC client interface
+
+---
+
+# Irssi as the client
+
+* .grey[Well known IRC protocol]
+* .grey[Familiar IRC client interface]
+* Gateway?
+
+---
+
+# Chat protocol <-> IRC
+
+Bitlbee
+
+---
+
+# Chat protocol <-> IRC
+
+Bitlbee - daemon that converts IRC commands
+```
+~/local/sbin/bitlbee \
+  -P ~/local/var/run/bitlbee.pid \
+  -c ~/local/etc/bitlbee/bitlbee.conf \
+  -d ~/local/etc/bitlbee/
+```
+
+---
+
+# Log in Google Talk
+
+![Google Talk in Irssi](./static/bitlbee_start.png)
+
+---
+
+# A chat with Google contact
+
+![Chat in Irssi](./static/bitlbee_query.png)
+
+---
+
+class: center, middle, inverse
+
+# Task management
+
+---
 
 
   </textarea>
