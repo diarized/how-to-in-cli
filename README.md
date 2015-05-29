@@ -389,7 +389,34 @@ Easy to debug and improve
 * .grey[Password-store]
 * .grey[Combined with Pretty GNU Privacy (PGP key infrastructure + key agent)]
 
-More on PGP key agents on next slides.
+---
+
+# Pretty GNU Privacy
+
+* Key agent
+
+---
+
+# Pretty GNU Privacy
+
+* .grey[Key agent]
+* TTL
+
+---
+
+# Pretty GNU Privacy
+
+```
+export GPGKEY=A8F18B8F
+export GPG_TTY=$(tty)
+
+PGP_AGENT_INFO="/home/artur/.gpg-agent-info"
+
+if [[ ! -f /home/artur/.gnupg/S.gpg-agent ]]; then
+  eval $(gpg-agent --use-standard-socket --daemon --write-env-file $PGP_AGENT_INFO)
+else
+  source $PGP_AGENT_INFO
+```
 
 ---
 
@@ -406,8 +433,6 @@ class: center, middle, inverse
 ???
 
 Not only Irssi - many other, for GUI too.
-
-
 
 ---
 
@@ -461,4 +486,5 @@ class: center, middle, inverse
 # Task management
 
 ---
+
 
