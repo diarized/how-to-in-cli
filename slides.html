@@ -533,12 +533,18 @@ Easy to debug and improve
 export GPGKEY=A8F18B8F
 export GPG_TTY=$(tty)
 
-PGP_AGENT_INFO="/home/artur/.gpg-agent-info"
-
-if [[ ! -f /home/artur/.gnupg/S.gpg-agent ]]; then
-  eval $(gpg-agent --use-standard-socket --daemon --write-env-file $PGP_AGENT_INFO)
-else
-  source $PGP_AGENT_INFO
+if [[ ! -f $HOME/.gnupg/S.gpg-agent ]]; then
+  gpg-agent \
+    --use-standard-socket \
+    --daemon \
+    --verbose \
+    --write-env-file $HOME/.gpg-agent-info \
+    --log-file $HOME/local/var/log/gpg-agent.log \
+    --pinentry-program /usr/bin/pinentry-curses \
+    --default-cache-ttl 518400 \
+    --max-cache-ttl 518400 > /dev/null
+fi
+eval $(cat $HOME/.gpg-agent-info)
 ```
 
 ---
@@ -551,7 +557,7 @@ class: center, middle, inverse
 
 # Irssi as the client
 
-* Well known IRC protocol
+* Well known IRC commands
 
 ???
 
@@ -561,14 +567,14 @@ Not only Irssi - many other, for GUI too.
 
 # Irssi as the client
 
-* .grey[Well known IRC protocol]
+* .grey[Well known IRC commands]
 * Familiar IRC client interface
 
 ---
 
 # Irssi as the client
 
-* .grey[Well known IRC protocol]
+* .grey[Well known IRC commands]
 * .grey[Familiar IRC client interface]
 * Gateway?
 
@@ -583,6 +589,7 @@ Bitlbee
 # Chat protocol <-> IRC
 
 Bitlbee - daemon that converts IRC commands
+
 ```
 ~/local/sbin/bitlbee \
   -P ~/local/var/run/bitlbee.pid \
@@ -620,12 +627,18 @@ class: center, middle, inverse
 
 * Easy at the beginnig
 
+Just
+
+task add here starts the description of what is to do
+
 ---
 
 # TaskWorrior
 
 * .grey[Easy at the beginnig]
 * Flexible
+
+Allows to add tags, urgency, annotations, hierarchy
 
 ---
 
@@ -634,6 +647,8 @@ class: center, middle, inverse
 * .grey[Easy at the beginnig]
 * .grey[Flexible]
 * Powerful
+
+The combination of the two previous features
 
 ---
 
