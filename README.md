@@ -3,6 +3,7 @@ class: center, middle, inverse
 # The terminal
 
 .footnote[[Online version](https://github.com/diarized/how-to-in-cli)]
+
 ---
 
 # Why
@@ -35,7 +36,7 @@ General discussion about the history, simplicity, low-bandwith, low-resources fe
 * .grey[no distraction]
 * .grey[mouseless (keyboard only)]
 * .grey[no resource hungry]
-* often implemented (even in Windows)
+* alomst everywhere (even in Windows)
 
 ---
 
@@ -108,33 +109,9 @@ How to use Mutt to read remote inbox on Gmail server
  16 set imap_pass = $smtp_pass
 ```
 
----
+???
 
-class: center, middle, inverse
-
-# Password management
-
----
-
-# Password management
-
-* [Password-store](http://git.zx2c4.com/password-store/about/) - keeping passwords out of config files
-
----
-
-# Password management
-
-* .grey[Password-store]
-* Combined with Pretty GNU Privacy (PGP key infrastructure + key agent)
-
----
-
-# Password management
-
-* .grey[Password-store]
-* .grey[Combined with Pretty GNU Privacy (PGP key infrastructure + key agent)]
-
-More on PGP key agents on next slides.
+Back ticks are not visible in presentation mode.
 
 ---
 
@@ -196,8 +173,11 @@ class: center, middle, inverse
 ???
 
 :0c clones an email and processes it without waiting for exit code
+
 :0cD as above but rule is case sensitive
+
 :0w flag says to wait for the program in the action line to finish
+
 :0 just tries to match. Incase of success it interrupts.
 
 ---
@@ -341,6 +321,7 @@ class: center, middle, inverse
  27 remotepasseval = mailpass('myvpsmail')
 ```
 
+
 ---
 
 class: center, middle, inverse
@@ -381,6 +362,39 @@ macro index / "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch.py
 
 class: center, middle, inverse
 
+# Password management
+
+---
+
+# Password management
+
+* [Password-store](http://git.zx2c4.com/password-store/about/) - keeping passwords out of config files
+
+???
+
+Bash script.
+Easy to debug and improve
+
+---
+
+# Password management
+
+* .grey[Password-store]
+* Combined with Pretty GNU Privacy (PGP key infrastructure + key agent)
+
+---
+
+# Password management
+
+* .grey[Password-store]
+* .grey[Combined with Pretty GNU Privacy (PGP key infrastructure + key agent)]
+
+More on PGP key agents on next slides.
+
+---
+
+class: center, middle, inverse
+
 # Chatting in terminal
 
 ---
@@ -388,6 +402,12 @@ class: center, middle, inverse
 # Irssi as the client
 
 * Well known IRC protocol
+
+???
+
+Not only Irssi - many other, for GUI too.
+
+
 
 ---
 
